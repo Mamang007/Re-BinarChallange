@@ -1,4 +1,8 @@
 /* Delete Soon */
+* {
+  margin: 0px;
+  padding: 0px;
+}
 body {
   height: 5000px;
 }
@@ -8,6 +12,7 @@ body {
   background-size: cover;
   width: 100%;
   height: 100vh;
+  background-position-x: center;
   position: relative;
 }
 #home div.col {
@@ -19,15 +24,22 @@ body {
   bottom: 0;
   right: 0;
 }
-.mt-4 {
-  margin-top: 10;
+@media screen {
+  #home div.col {
+    /* membuat margin ulang untuk mode potrait */
+  }
 }
 /* Akhir Halaman 1 */
 
 /* Halaman 2 */
-.section-2 {
+#introduction {
   background-image: url(assets/the-games-bg.jpg);
   width: 100%;
   height: 100vh;
   background-size: cover;
+}
+@media screen {
+  #home div.col {
+    /* membuat margin ulang untuk mode potrait */
+  }
 }
