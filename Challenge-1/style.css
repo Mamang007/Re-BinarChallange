@@ -1,0 +1,66 @@
+/* Halaman 1 */
+#home {
+  background-image: url(assets/main-bg.jpg);
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  background-position-x: center;
+  position: relative;
+}
+#home div.col {
+  width: 100%;
+  overflow: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+/* Akhir Halaman 1 */
+
+/* Halaman 2 */
+#introduction {
+  background-image: url(assets/the-games-bg.jpg);
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* Akhir Halaman 2 */
+
+/* Halaman 3 */
+#features {
+  background-image: url(assets/features.jpg);
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+}
+/* Akhir Halaman 3 */
+
+/* Halaman 4 */
+#system-requirement {
+  background-image: url(assets/requirements.png);
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+}
+.yellowFont {
+  color: #ffb548;
+}
+.basicFont {
+  font-family: Arial;
+  color: aliceblue;
+}
+.paddingTable {
+  padding: 0px 10px;
+}
+/* Akhir Halaman 4 */
+
+/* Halaman 5 */
+#top-scores {
+  background: black;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+}
+/* Akhir Halaman 5 */
