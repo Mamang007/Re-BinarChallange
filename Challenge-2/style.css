@@ -15,3 +15,11 @@ img.hand:hover {
   background-color: antiquewhite;
   border-radius: 150px;
 }
+
+.hasil-permainan {
+  width: fit-content;
+  height: fit-content;
+  background-color: tomato;
+  /* transform: rotate(20deg); */
+  padding: 30px;
+}
