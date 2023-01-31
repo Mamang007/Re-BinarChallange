@@ -1,0 +1,25 @@
+* {
+  padding: 5px;
+  margin: 5px;
+}
+
+img {
+  width: 120px;
+  height: 120px;
+}
+img.hand:hover {
+  transform: rotate(20deg);
+}
+
+.pilihan {
+  background-color: antiquewhite;
+  border-radius: 150px;
+}
+
+.hasil-permainan {
+  width: fit-content;
+  height: fit-content;
+  background-color: tomato;
+  /* transform: rotate(20deg); */
+  padding: 30px;
+}
