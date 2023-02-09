@@ -21,6 +21,11 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
+//Mengirimkan file HTML ke Halaman Server
+app.get("/home", (req, res) => {
+  res.sendFile("./homepage.html", { root: __dirname });
+});
+
 //Setiap GET request ke http://localhost:${port}/products akan diarahkan ke handler ini
 app.get("/products", (req, res) => {
   res.json(["Apple", "Redmi", "One Plus One"]);
