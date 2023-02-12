@@ -1,0 +1,14 @@
+<h1>Jumlah user <%= users.length %></h1>
+<p>Tambahkan lagi?</p>
+<div>
+    <button type="button" onclick="location.href='/register'" class="btn btn-primary btn-lg">Tambahkan</button>
+</div>
+<div id="users">
+    <h1>Daftar User</h1>
+    <% users.forEach(user => { %>
+    <ul>
+        <li>Email : <%= user.email %></li>
+        <li>Password : <%= user.password %></li>
+    </ul>
+    <% }) %>
+</div>
