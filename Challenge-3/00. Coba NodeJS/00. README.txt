@@ -1,0 +1,8 @@
+Untuk memulai ketikkan perintah berikut pada terminal
+
+//Hapus file test.txt dan person.json
+rm test.txt
+rm person.json
+
+//Kemudian pada terminal ketikkan, untuk menjalankan program
+node index //akan terbuat kembali file test.txt dan person.json
