@@ -1,2 +1,62 @@
-<h1>Hello World!</h1>
-<h4>Ini halaman Game</h4>
+<style>
+    * {
+    padding: 5px;
+    margin: 5px;
+    }
+
+    container-fluid {
+    width: 100%;
+    height: 100%;
+    }
+
+    img {
+    width: 120px;
+    height: 120px;
+    }
+    img.hand:hover {
+    transform: rotate(20deg);
+    }
+
+    .pilihan {
+    background-color: antiquewhite;
+    border-radius: 150px;
+    }
+
+    .hasil-permainan {
+    width: fit-content;
+    height: fit-content;
+    background-color: tomato;
+    /* transform: rotate(20deg); */
+    padding: 30px;
+    }
+
+</style>
+  <div class="container-fluid" style="background-color: yellowgreen">
+    <div class="container text-center">
+      <a href="/"><p>Home</p></a>
+      <h1>Permainan Suit Jepang</h1>
+      <h3 class="row">
+        <span>Score</span>
+        <span id="skor"></span>
+      </h3>
+      <div class="row justify-content-evenly align-items-center">
+        <div class="col-3">
+          <h3>Player 1</h3>
+          <div id="player-batu" onclick="batuClick()"><img class="hand" src="img/batu.png" alt="Player Batu" /></div>
+          <div id="player-gunting" onclick="guntingClick()"><img class="hand" src="img/gunting.png" alt="Player Gunting" /></div>
+          <div id="player-kertas" onclick="kertasClick()"><img class="hand" src="img/kertas.png" alt="Player Kertas" /></div>
+        </div>
+        <div class="col-3">
+          <h1 id="hasil" style="font: bolder 60px/80px Arial, serif; color: yellow">VS</h1>
+          <img src="img/refresh.png" alt="Refresh" />
+        </div>
+        <div class="col-3">
+          <h3>Com</h3>
+          <div id="com-batu" class="com"><img src="img/batu.png" alt="Computer Batu" /></div>
+          <div id="com-gunting" class="com"><img src="img/gunting.png" alt="Computer Gunting" /></div>
+          <div id="com-kertas" class="com"><img src="img/kertas.png" alt="Computer Kertas" /></div>
+        </div>
+      </div>
+    </div>
+    <script src="js/script.js"></script>
+  </div>
