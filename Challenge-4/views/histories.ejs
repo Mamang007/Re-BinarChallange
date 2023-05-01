@@ -1,0 +1,58 @@
+<%- include('partials/header') %>
+
+<body>
+    <main>
+    <!-- Awal Sidebar -->
+    <%- include('partials/sidebars') %>
+    <!-- Akhir Sidebar -->
+    <div class="col-md-9 ms-sm-auto col-lg-10 pt-3 px-4">
+        <h1>Mamat Manja! | History</h1>
+    
+        <a href="/history/add">
+            <button type="button" class="btn btn-primary mb-3">
+                <span data-feather="plus"></span>
+                Add New History
+            </button>
+        </a>
+
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>    
+                        <th scope="col">#</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">Played At</th>
+                        <th scope="col">Score</th>
+                        <th colspan="2" scope="col">Action</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% histories.forEach((history) => { %>
+                        <tr>
+                            <th scope="row"><%= history.id %></th>
+                            <td><%= history.GameId %></td>
+                            <td><%= history.playedAt %></td>
+                            <td><%= history.score %></td>
+                            <td>
+                                <a href="/history/update/<%= history.id %>">
+                                    <button type="button" class="btn btn-warning mb-3">Edit</button>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="/history/delete/<%= history.id %>">
+                                    <button type="button" class="btn btn-danger mb-3">Delete</button>
+                                </a>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </main>
+
+    <%- include('partials/footer') %>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<%- include('partials/header') %>
+
+<body>
+    <main>
+    <!-- Awal Sidebar -->
+    <%- include('partials/sidebars') %>
+    <!-- Akhir Sidebar -->
+    <div class="col-md-9 ms-sm-auto col-lg-10 pt-3 px-4">
+        <h1>Mamat Manja! | Add History Data</h1>
+    
+        <form method="POST" action="/history/post">
+            <div class="mb-3">
+                <label class="form-label">Game ID</label>
+                <input type="number" name="GameId" min="1" class="form-control"/>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Score</label>
+                <input type="number" name="score" min="10" max="100" step="5" class="form-control"/>
+            </div>
+
+            <button type="submit" class="btn btn-success">Save</button>
+        </form>
+    </div>
+    </main>
+
+    <%- include('partials/footer') %>
+</body>
+
+</html>
