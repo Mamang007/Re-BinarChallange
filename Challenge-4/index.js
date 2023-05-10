@@ -2,14 +2,27 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const port = 3000;
+const data = require("./db/database.json");
 
 //Middleware
 const logger = (req, res, next) => {
   console.log(`${req.method} ${req.url}`);
   next();
 };
-const bodyParser = require("body-parser");
-app.use(bodyParser.urlencoded({ extended: false }));
+// const bodyParser = require("body-parser");
+// // parse application/x-www-form-urlencoded
+// app.use(bodyParser.urlencoded({ extended: false }));
+// // parse application/json
+// app.use(bodyParser.json());
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+//Memanggil Router Game.js
+const games = require("./routes/game");
+const histories = require("./routes/history");
+app.use(games);
+app.use(histories);
 
 //Static files
 app.use(express.static("public"));
@@ -37,6 +50,44 @@ app.get("/login", (req, res) => {
   res.render("login", {
     title: "Admin - Login",
   });
+});
+
+app.post("/login", (req, res) => {
+  let request = req.body;
+  let userData = data;
+  for (let i = 0; i < userData.length; i++) {
+    const element = userData[i];
+    if (request.username === element.username && request.password === element.password) {
+      res.status(200);
+      // res.json(userData);
+      res.redirect("/admin");
+    } else {
+      res.status(401);
+      res.send("You're not authenticated.");
+    }
+  }
+});
+
+app.get("/register", (req, res) => {
+  res.render("register", {
+    title: "Admin - Register",
+  });
+});
+
+app.post("/register", (req, res) => {
+  const { username, email, password, confirmPassword } = req.body;
+  try {
+    data.push({
+      username: username,
+      email: email,
+      password: password,
+      confirmPassword: confirmPassword,
+    });
+    res.redirect("/login");
+  } catch {
+    res.redirect("/register");
+  }
+  console.log(data);
 });
 
 //Error handler

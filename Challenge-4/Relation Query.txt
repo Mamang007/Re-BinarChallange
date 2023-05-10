@@ -1,0 +1,20 @@
+SELECT 
+
+"Biodata"."id", 
+"Biodata"."fullname", 
+"Biodata"."hobby", 
+"Biodata"."GameId", 
+"Biodata"."createdAt", 
+"Biodata"."updatedAt", 
+
+"Game"."id" AS "Game.id", 
+
+"Game"."username" AS "Game.username"Game.id", 
+"Game"."username" AS "Game.username", 
+"Game"."password" AS "Game.password", 
+"Game"."createdAt" AS "Game.createdAt", 
+"Game"."updatedAt" AS "Game.updatedAt" 
+
+FROM "Biodata" AS "Biodata" 
+LEFT OUTER JOIN "Games" AS "Game" 
+ON "Biodata"."GameId" = "Game"."id";

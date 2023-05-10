@@ -1,9 +1,7 @@
-const { Articles } = require("./models");
-const express = require("express");
-const app = express();
+const { Article } = require("./models");
 
-Articles.create({
-  title: "Hello World",
+Article.create({
+  tittle: "Hello World",
   body: "Lorem Ipsum Dolor Sit Amet",
   approved: true,
 }).then((article) => {
