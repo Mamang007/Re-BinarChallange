@@ -7,8 +7,8 @@ const user = require("./models/user");
 // Middleware
 router.get("/", restrict, (req, res) => res.render("index"));
 
-//HomePage
-router.get("/", (_, res) => res.render("index"));
+// // HomePage, Jika tanpa middleware maka akan dapat ditampilkan
+// router.get("/", (_, res) => res.render("index"));
 
 //Register
 router.get("/register", (_, res) => res.render("register"));

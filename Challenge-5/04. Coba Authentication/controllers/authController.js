@@ -1,15 +1,7 @@
 const { User } = require("../models");
 const passport = require("../lib/passport");
 const user = require("../models/user");
-
-function format(user) {
-  const { id, username } = user;
-  return {
-    id,
-    username,
-    accessToken: user.generateToken(),
-  };
-}
+const jwt = require("jsonwebtoken");
 
 module.exports = {
   register: (req, res, next) => {
@@ -25,10 +17,24 @@ module.exports = {
     failureRedirect: "/login",
     failureFlash: true, //Untuk mengaktifkan express flash
   }),
-  loginJwt: (req, res) => {
-    User.authenticate(req.body).then((user) => {
-      res.json(format(user));
-    });
+  loginJwt: async (req, res) => {
+    try {
+      const pengguna = await User.authenticate({
+        username: req.body.username,
+        password: req.body.password,
+      });
+
+      const { id, username, password } = pengguna;
+
+      res.json({
+        id,
+        username,
+        password,
+        accessToken: user.generateToken(),
+      });
+    } catch (err) {
+      console.log(err);
+    }
   },
   whoami: (req, res) => {
     /* req.user adalah instance dari User Model,
@@ -38,5 +44,9 @@ module.exports = {
   whoamiJwt: (req, res) => {
     const currentUser = req.user;
     res.json(currentUser);
+  },
+  getData: async (_, res) => {
+    const users = await User.findAll();
+    res.json(users);
   },
 };

@@ -37,11 +37,16 @@ module.exports = (sequelize, DataTypes) => {
       const payload = {
         id: this.id,
         username: this.username,
+        password: this.password,
       };
+
+      console.log(payload);
+
       //Rahasia ini nantinya kita pakai untuk memverifikasi apakah token ini benar-benar berasal dari aplikasi kita
       const rahasia = "Ini rahasia ga boleh disebar-sebar";
       //Membuat token dari data-data diatas
-      const token = jwt.sign(payload, rahasia);
+      const token = jwt.sign({ payload }, rahasia);
+
       return token;
     };
 
@@ -53,6 +58,8 @@ module.exports = (sequelize, DataTypes) => {
 
         const isPasswordValid = user.checkPassword(password);
         if (!isPasswordValid) return Promise.reject("Wrong password");
+
+        console.log(user.dataValues);
 
         return Promise.resolve(user);
       } catch (err) {

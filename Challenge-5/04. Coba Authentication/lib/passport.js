@@ -1,6 +1,5 @@
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
-const { Strategy: JwtStrategy, ExtractJwt } = require("passport-jwt");
 const { User } = require("../models");
 
 // Fungsi untuk authentication
@@ -19,27 +18,8 @@ async function authenticate(username, password, done) {
   }
 }
 
-// Passport JWT Options
-const options = {
-  // Untuk mengekstrak JWT dari request dan mengambil token-nya dari heade yang bernama Authorization
-  jwtFromRequest: ExtractJwt.fromHeader("authorization"),
-  /* Harus sama seperti dengan apa yang kita masukkan sebagai parameter kedua dari jwt.sign di User model.
-  Inilah yang kita pakai untuk memverifikasi apakah tokennya dibuat oleh sistem kita */
-  secretOrKey: "Ini rahasia ga boleh disebar-sebar",
-};
-
 // Local Strategy
 passport.use(new LocalStrategy({ usernameField: "username", passwordField: "password" }, authenticate));
-
-// JWT Strategy
-passport.use(
-  new JwtStrategy(options, async (payload, done) => {
-    // payload adalah hasil terjemahan JWT, sesuai dengan apa yang kita masukkan di parameter pertama dari jwt.sign
-    User.findByPk(payload.id)
-      .then((user) => done(null, user))
-      .catch((err) => done(err, false));
-  })
-);
 
 /* Serialize dan Deserialize
     Cara untuk membuat sesi dan menghapus sesi
