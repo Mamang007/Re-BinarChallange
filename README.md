@@ -31,3 +31,15 @@ Tugas keempat yaitu membuat sistem server database dengan menggunakan Postgres d
     5. Dashboard untuk menampilkan dan sistem CRUD baru dibuat untuk tabel Histori saja.
     6. Belum mencoba menggunakan controller query, sehingga CRUD menggunakan syntax Sequelize. Hal ini akan dipelajari lebih lanjut
 5. Challenge Kelima
+Untuk Tugas kelima yaitu membuat sistem Autentikasi dan Autorisasi. Kedua sistem ini akan dibuat menggunakan passport strategi yang mana ada metode Local Strategy dan JWT Strategy. Autentikasi diperlukan untuk melakukan verifikasi user dan Autorisasi digunakan untuk verifikasi akses tiap user. Pada Challenge 5 terdapat 4 modul yg dipelajari, yaitu:
+    1. Design Pattern, pada bagian ini akan membuat design pattern MVC (Model View Controller) dan MCR (Model Controller Router).
+    2. Template Engine, sama halnya dengan view engine digunakan untuk rendering file HTML pada server. Pada materi ini dilakukan lebih mendalam mengenai implementasi EJS (Embedded Javascript), mulai dari partials, css, navbar, implementasi for loop, dan if-else statement.
+    3. Asynchronus Process, terdapat beberapa materi pada modul ini yaitu Set Timeout dan Interval, Implementasi Callback, Implementasi Promise, dan Synchronus dan Asynchronus process.
+    4. Authentication dan Authorization, membuat Local Strategy Passport dan JWT Strategy Passport.
+    
+    Untuk kendala **Challenge Kelima** ini yaitu:
+    1. Pada penggunaan strategy masih ada beberapa skema yang belum dipahami seperti session untuk menyimpan token JWT, tetapi untuk implementasi Local Strategy sudah cukup paham.
+    2. Penggunaan ORM Sequelize untuk melakukan generate token dan menyimpan payload pada token terdapat kendala, sudah tanya ke berbagai forum dan belum ada yang menanggapi. Sehingga perlunya memahami cara penggunaan model pada ORM agar mengerti tentang OOP Class model. Pembuatan function dan static function juga masih perlu dipahami lebih lanjut pada materi ini. Sudah mengikuti keseluruhan tutorial tetapi program masih tidak berjalan.
+    3. Dari 2 permasalahan tersebut untuk bagian Back End saat ini akan saya pelajari lebih lanjut setelah menyelesaikan Re-Binar Challenge ini.
+    4. Untuk Challenge yang akan diimplementasikan sedikit berbeda dengan yg di modul. Saya akan menggunakan tabel untuk membuat room yang nantinya di akses oleh 2 player, tiap player dapat membuat room sendiri dan mengundang player lain untuk join pada room yang telah dibuat, kemudian kedua player dapat melakukan 'fight' pada room tersebut dan menampilkan hasil dan score. Dari gambaran ini artinya token perlu disimpan untuk tiap player pada suatu tabel room.
+6. Challenge Keenam
