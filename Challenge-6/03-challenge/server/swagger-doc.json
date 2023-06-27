@@ -1,0 +1,498 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Player API",
+    "description": "API list untuk tampilan player"
+  },
+  "tags": [
+    {
+      "name": "players",
+      "description": "Everything about Players"
+    }
+  ],
+  "servers": [
+    {
+      "url": "localhost:4000/api/v1"
+    }
+  ],
+  "paths": {
+    "/players": {
+      "get": {
+        "tags": [
+          "players"
+        ],
+        "summary": "Menampilkan seluruh user yang tersedia",
+        "description": "Returns a list of players",
+        "operationId": "getPlayers",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "Success"
+                    },
+                    "id": {
+                      "type": "integer",
+                      "format": "int64",
+                      "example": 5
+                    },
+                    "username": {
+                      "type": "string",
+                      "example": "Mamat Manja"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "mamat@mail.com"
+                    },
+                    "password": {
+                      "type": "string",
+                      "example": "mamataduhai"
+                    },
+                    "experience": {
+                      "type": "string",
+                      "example": 0
+                    },
+                    "lvl": {
+                      "type": "string",
+                      "example": 0
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "format": "date",
+                      "example": "2021-09-27T13:22:53.679Z"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "example": "2021-09-27T13:22:53.679Z"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "players"
+        ],
+        "summary": "Membuat player baru",
+        "description": "Returns a list of players",
+        "operationId": "createPlayer",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "example": "Mamat Manja"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "mamat@mail.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "mamataduhai"
+                  }
+                },
+                "required": [
+                  "username",
+                  "email",
+                  "password"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int64",
+                      "example": 5
+                    },
+                    "username": {
+                      "type": "string",
+                      "example": "Mamat Manja"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "mamat@mail.com"
+                    },
+                    "password": {
+                      "type": "string",
+                      "example": "mamataduhai"
+                    },
+                    "experience": {
+                      "type": "string",
+                      "example": 0
+                    },
+                    "lvl": {
+                      "type": "string",
+                      "example": 0
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "format": "date",
+                      "example": "2021-09-27T13:22:53.679Z"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "example": "2021-09-27T13:22:53.679Z"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Failed response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Request body canot be empty"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/players/{playersId}": {
+      "get": {
+        "tags": [
+          "players"
+        ],
+        "summary": "Menampilkan user yang tersedia berdasarkan ID Player",
+        "description": "Returns a list of players",
+        "operationId": "getPlayerById",
+        "parameters": [
+          {
+            "name": "playersId",
+            "in": "path",
+            "description": "ID of pet to return",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "Success"
+                    },
+                    "id": {
+                      "type": "integer",
+                      "format": "int64",
+                      "example": 5
+                    },
+                    "username": {
+                      "type": "string",
+                      "example": "Mamat Manja"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "mamat@mail.com"
+                    },
+                    "password": {
+                      "type": "string",
+                      "example": "mamataduhai"
+                    },
+                    "experience": {
+                      "type": "string",
+                      "example": 0
+                    },
+                    "lvl": {
+                      "type": "string",
+                      "example": 0
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "format": "date",
+                      "example": "2021-09-27T13:22:53.679Z"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "example": "2021-09-27T13:22:53.679Z"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Player with id: 5 not found"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "players"
+        ],
+        "summary": "Mengubah user yang tersedia berdasarkan ID Player",
+        "description": "Returns a list of players",
+        "operationId": "updatePlayer",
+        "parameters": [
+          {
+            "name": "playersId",
+            "in": "path",
+            "description": "ID of pet to return",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "example": "Mamat Manja"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "mamat@mail.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "mamataduhai"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int64",
+                      "example": "Player with id: 5 successfully updated"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Player with id: 5 not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Failed Responses",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Failed to update"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "players"
+        ],
+        "summary": "Menghapus user yang tersedia berdasarkan ID Player",
+        "description": "Returns a list of players",
+        "operationId": "deletePlayer",
+        "parameters": [
+          {
+            "name": "playersId",
+            "in": "path",
+            "description": "ID of pet to return",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int64",
+                      "example": "Player with id: 5, was deleted successfully"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Failed Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Cannot delete Player with id: 5. Maybe Player was not found!"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/players/exp/{playersId}": {
+      "post": {
+        "tags": [
+          "players"
+        ],
+        "summary": "Menambah jumlah experience user yang tersedia berdasarkan ID Player",
+        "description": "Returns a list of players",
+        "operationId": "updateExperience",
+        "parameters": [
+          {
+            "name": "playersId",
+            "in": "path",
+            "description": "ID of pet to return",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "exp": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 100
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int64",
+                      "example": "Player with id = 5 gain 666 experience. Total experience = 6666"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Failed Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Cannot update Player with id=5"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
