@@ -10,8 +10,11 @@ function Navbar({ onModalOn, player, onFilterData }) {
   };
 
   function filterPlayer(users, key, value) {
+    // return users.filter(function (user) {
+    //   return user[key].includes(value);
+    // });
     return users.filter(function (user) {
-      return user[key] === value;
+      return user[key] == value;
     });
   }
 
@@ -20,7 +23,7 @@ function Navbar({ onModalOn, player, onFilterData }) {
 
     const dropdown = document.getElementById("dropdown");
     const selectedValue = dropdown.value;
-    console.log(player[selectedValue], searchValue);
+    // console.log(player, searchValue);
 
     const data = filterPlayer(player, selectedValue, searchValue);
     onFilterData(data);

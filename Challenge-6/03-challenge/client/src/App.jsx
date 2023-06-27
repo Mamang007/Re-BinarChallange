@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Table from "./components/Table";
@@ -60,6 +60,7 @@ function App() {
     exp: "",
     lvl: "",
   });
+  const [filter, setFilter] = useState([]);
 
   const addPlayer = (data) => {
     setPlayersData([...playerData, data]);
@@ -92,6 +93,11 @@ function App() {
   };
 
   const filterData = (data) => {
+    // setPlayersData((prevState) => {
+    //   const newFilterData = prevState;
+    //   return data;
+    // });
+    setFilter(data);
     console.log(data);
   };
 
