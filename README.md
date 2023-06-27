@@ -43,3 +43,12 @@ Untuk Tugas kelima yaitu membuat sistem Autentikasi dan Autorisasi. Kedua sistem
     3. Dari 2 permasalahan tersebut untuk bagian Back End saat ini akan saya pelajari lebih lanjut setelah menyelesaikan Re-Binar Challenge ini.
     4. Untuk Challenge yang akan diimplementasikan sedikit berbeda dengan yg di modul. Saya akan menggunakan tabel untuk membuat room yang nantinya di akses oleh 2 player, tiap player dapat membuat room sendiri dan mengundang player lain untuk join pada room yang telah dibuat, kemudian kedua player dapat melakukan 'fight' pada room tersebut dan menampilkan hasil dan score. Dari gambaran ini artinya token perlu disimpan untuk tiap player pada suatu tabel room.
 6. Challenge Keenam
+Untuk Tugas keenam yaitu membuat aplikasi untuk menampilkan daftar pemain yang terdaftar serta melakukan static CRUD pada data pemain. Pada challenge ini sudah mengguna framework ReactJS. Pada Challenge 6 terdapat 3 modul, tetapi hanya digunakan 2 modul untuk latihan Challenge 6, yaitu:
+    1. Swagger, pada materi ini dibuat server menggunakan express menggunakan metode MVC. Pada latihan ini dibuat juga dokumentasinya menggunakan swagger dan membuat route documentation.
+    2. React, pada materi ini dibuat client-side menggunakan ReactJS.
+
+    Untuk Challengenya sendiri yaitu membuat server side dan client side untuk mengelola dashboard, tetapi untuk dashboard client-side belum melakukan fetching data ke server. Untuk kendala **Challenge Keenam** ini yaitu:
+    1. Pemahaman mengenai Use Effect masih belum dipahami dengan lancar, tetapi untuk Use State sudah cukup bisa dipahami.
+    2. Dalam melakukan filtering berdasarkan parameter username, email, exp, dan lvl sudah bisa dilakukan pada console.log, hanya saja untuk merender data yang sudah terfilter akan menghapus data yang sudah ada. Kedepannya aingin dilakukan filtering secara dinamis agar tapa klik 'Search' sudah langsung ditampilkan berdasarkan parameter tsb.
+    3. Untuk selebihnya tidak ada kendala berat, tetapi masih perlu melakukan refactoring code.
+    
