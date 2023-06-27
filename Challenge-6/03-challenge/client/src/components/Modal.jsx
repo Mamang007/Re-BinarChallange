@@ -1,10 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
-function Modal(props) {
+function Modal({ toggle, onModalOff, onAddPlayer, onUpdatePlayer, form, player }) {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [exp, setExp] = useState("");
   const [lvl, setLvl] = useState("");
+
+  useEffect(() => {
+    if (form) {
+      setUsername(form.username);
+      setEmail(form.email);
+      setExp(form.exp);
+      setLvl(form.lvl);
+    }
+  }, [form]);
 
   const usernameOnChangeHandle = (event) => {
     setUsername(event.target.value);
@@ -25,26 +35,27 @@ function Modal(props) {
   const onSubmit = (event) => {
     event.preventDefault(); // Membuat fungsi submit tidak ter-reload
 
-    if (props.form.id) {
+    if (form.id) {
       const data = {
-        id: props.form.id,
+        id: form.id,
         username: username,
         email: email,
         exp: exp,
         lvl: lvl,
       };
 
-      props.onUpdatePlayer(data);
+      onUpdatePlayer(data);
     } else {
       const data = {
-        id: props.student.length + 1,
+        id: player.length + 1,
         username: username,
         email: email,
         exp: exp,
         lvl: lvl,
       };
 
-      props.onAddPlayer(data);
+      onAddPlayer(data);
+      // console.log(data.id);
     }
 
     setUsername("");
@@ -53,16 +64,21 @@ function Modal(props) {
     setLvl("");
   };
 
+  const turnOffModal = () => {
+    setUsername("");
+    setEmail("");
+    setExp("");
+    setLvl("");
+    onModalOff();
+  };
+
   return (
     <>
-      {/* <!-- Trigger/Open The Modal --> */}
-      <button onClick={props.onToggleModal}>Open Modal</button>
-
       {/* <!-- The Modal --> */}
-      <div id="myModal" style={{ display: props.toggle }} className="modal">
+      <div id="myModal" style={{ display: toggle }} className="modal">
         {/* <!-- Modal content --> */}
         <div className="modal-content">
-          <span className="close" onClick={props.onToggleModal}>
+          <span className="close" onClick={turnOffModal}>
             &times;
           </span>
           <form style={{ margin: "auto", width: "200px" }} onSubmit={onSubmit}>
@@ -94,5 +110,14 @@ function Modal(props) {
     </>
   );
 }
+
+Modal.propTypes = {
+  toggle: PropTypes.string,
+  onModalOff: PropTypes.func,
+  onAddPlayer: PropTypes.func,
+  onUpdatePlayer: PropTypes.func,
+  form: PropTypes.object,
+  player: PropTypes.array,
+};
 
 export default Modal;

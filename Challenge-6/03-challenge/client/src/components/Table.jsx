@@ -1,5 +1,6 @@
-function Table(props) {
-  const data = props.player;
+import PropTypes from "prop-types";
+
+function Table({ player, onEditPlayer }) {
   return (
     <table>
       {/* <h1>Hello, {props.nama}</h1> */}
@@ -13,47 +14,25 @@ function Table(props) {
         </tr>
       </thead>
       <tbody>
-        {data.map((player, index) => (
-          <tr key={index}>
+        {player.map((player) => (
+          <tr key={player.id}>
             <td> {player.username} </td>
             <td> {player.email} </td>
             <td> {player.exp} </td>
             <td> {player.lvl} </td>
             <td>
-              <button>Edit</button>
+              <button onClick={() => onEditPlayer(player)}>Edit</button>
             </td>
           </tr>
         ))}
-        <tr>
-          <td>Mamat</td>
-          <td>ManjaManjaManja</td>
-          <td>banget</td>
-          <td>abiez</td>
-          <td>
-            <button>Edit</button>
-          </td>
-        </tr>
-        <tr>
-          <td>Mamat</td>
-          <td>Manja</td>
-          <td>banget</td>
-          <td>abiez</td>
-          <td>
-            <button>Edit</button>
-          </td>
-        </tr>
-        <tr>
-          <td>Mamat</td>
-          <td>Manja</td>
-          <td>banget</td>
-          <td>abiez</td>
-          <td>
-            <button>Edit</button>
-          </td>
-        </tr>
       </tbody>
     </table>
   );
 }
+
+Table.propTypes = {
+  player: PropTypes.array,
+  onEditPlayer: PropTypes.func,
+};
 
 export default Table;
