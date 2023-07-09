@@ -1,18 +1,18 @@
 import { useState } from "react";
 import firebase from "../services/firebase";
 
-export default function Register() {
+export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleRegister = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
 
     if (!email || !password) return alert("Please insert missing credentials!");
     firebase
       .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .then(console.log("Register Success"))
+      .signInWithEmailAndPassword(email, password)
+      .then(console.log("Login Success"))
       .catch((err) => {
         console.log(err.code);
         console.log(err.message);
@@ -24,8 +24,8 @@ export default function Register() {
 
   return (
     <div>
-      <form onSubmit={handleRegister}>
-        <h3>Register</h3>
+      <form onSubmit={handleLogin}>
+        <h3>Login</h3>
         <label>Email:</label>
         <br />
         <input type="email" onChange={(e) => setEmail(e.target.value)} value={email} />
