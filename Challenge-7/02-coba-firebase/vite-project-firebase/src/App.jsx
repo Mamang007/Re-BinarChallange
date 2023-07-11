@@ -1,9 +1,11 @@
 import "./App.css";
+import firebase from "./services/firebase";
 
 // Component
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Uploader from "./pages/Uploader";
+import DataTable from "./pages/DataTable";
 
 function App() {
   return (
@@ -12,6 +14,7 @@ function App() {
       <Register />
       <Login />
       <Uploader />
+      <DataTable />
     </>
   );
 }
