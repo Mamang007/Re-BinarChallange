@@ -2,6 +2,7 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/storage";
+import "firebase/compat/database";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAaRRs-FN0xgPBKpDtLIDsAha8CmAJMiOY",
@@ -11,6 +12,7 @@ const firebaseConfig = {
   messagingSenderId: "113684269484",
   appId: "1:113684269484:web:a6fd191a6e4b00807e5209",
   measurementId: "G-245LRYC1KL",
+  databaseURL: "https://vite-project-firebase-fa475-default-rtdb.asia-southeast1.firebasedatabase.app",
 };
 
 // Initialize Firebase

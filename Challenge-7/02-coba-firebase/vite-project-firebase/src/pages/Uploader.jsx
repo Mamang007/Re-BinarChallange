@@ -23,6 +23,7 @@ export default function Uploader() {
           console.log(snapshot);
         });
       alert("File Uploaded!");
+      console.log(response);
     } catch (err) {
       console.log(err);
       alert("Failed to upload file!");
